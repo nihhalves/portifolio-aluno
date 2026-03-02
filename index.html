@@ -3,20 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dra. Nicolly | Future Cardiac Surgeon</title>
+<title>Nicolly | Future Cardiac Surgeon</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --primary:#2b0a3d;
-    --secondary:#4b1d6b;
-    --text:#ffffff;
-    --pink:#ff66b2;
-    --lilac:#c084fc;
-    --mint:#6ee7b7;
-    --gold:#ffd700;
-    --gradient: linear-gradient(135deg,#ff66b2,#c084fc,#6ee7b7);
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f1f5f9;
+    --accent:#ec4899;
+    --accent2:#a855f7;
+    --mint:#34d399;
 }
 
 *{
@@ -27,38 +25,49 @@
 }
 
 body{
-    background:var(--primary);
+    background:var(--bg);
     color:var(--text);
     overflow-x:hidden;
-}
-
-header{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:var(--gradient);
-    background-size:300% 300%;
-    animation:gradientMove 8s ease infinite;
     position:relative;
 }
 
-@keyframes gradientMove{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+/* ✨ Partículas mágicas */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* Header */
+header{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
 header h1{
-    font-size:3.8rem;
+    font-size:4rem;
     font-weight:800;
-    text-shadow:0 0 20px rgba(255,255,255,0.4);
+    background:linear-gradient(90deg,#ec4899,#a855f7,#34d399);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:shine 4s infinite linear;
+}
+
+@keyframes shine{
+    0%{filter:brightness(1)}
+    50%{filter:brightness(1.5)}
+    100%{filter:brightness(1)}
 }
 
 header p{
     margin-top:20px;
     font-size:1.3rem;
+    opacity:0.9;
 }
 
 section{
@@ -67,8 +76,8 @@ section{
 
 h2{
     margin-bottom:40px;
-    font-size:2.2rem;
-    color:var(--pink);
+    font-size:2rem;
+    color:var(--accent);
 }
 
 .grid{
@@ -78,21 +87,15 @@ h2{
 }
 
 .card{
-    background:var(--secondary);
+    background:var(--card);
     padding:30px;
     border-radius:20px;
     transition:0.4s;
-    box-shadow:0 0 20px rgba(255,105,180,0.2);
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(255,215,0,0.6);
-}
-
-.card h3{
-    color:var(--mint);
-    margin-bottom:15px;
+    box-shadow:0 0 30px rgba(168,85,247,0.5);
 }
 
 .card img{
@@ -101,112 +104,120 @@ h2{
     margin-bottom:15px;
 }
 
-.timeline{
-    border-left:4px solid var(--gold);
-    padding-left:20px;
-}
-
-.timeline-item{
-    margin-bottom:30px;
-    position:relative;
-}
-
-.timeline-item::before{
-    content:"";
-    position:absolute;
-    left:-12px;
-    top:5px;
-    width:15px;
-    height:15px;
-    background:var(--pink);
-    border-radius:50%;
-}
-
-footer{
-    text-align:center;
+/* Simulador */
+.simulator{
+    background:var(--card);
     padding:40px;
-    background:var(--secondary);
-    font-size:0.9rem;
+    border-radius:20px;
+    max-width:600px;
 }
 
 button{
-    margin-top:30px;
-    padding:12px 25px;
+    margin-top:20px;
+    padding:12px 20px;
     border:none;
-    border-radius:30px;
+    border-radius:10px;
     background:var(--mint);
-    color:var(--primary);
+    color:#0f172a;
     font-weight:600;
     cursor:pointer;
-    transition:0.3s;
 }
 
-button:hover{
-    background:var(--gold);
+.result{
+    margin-top:20px;
+    font-weight:600;
+}
+footer{
+    text-align:center;
+    padding:40px;
+    background:var(--card);
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="particles"></canvas>
+
 <header>
-<div>
-<h1>Dra. Nicolly 👑</h1>
-<p>Princesa da Medicina | Futura Cardiocirurgiã 🫀</p>
-<button onclick="mostrarMensagem()">Descubra Meu Propósito</button>
-</div>
+<h1>Nicolly</h1>
+<p>Future Cardiac Surgeon | Medicina | Excelência, Ciência e Propósito 🫀</p>
 </header>
 
 <section>
-<h2>💖 Minha Vocação</h2>
+<h2>Especialização: Cardiocirurgia</h2>
 <div class="grid">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f4eae8e" alt="Coração anatômico">
-<h3>Amor pela Vida</h3>
-<p>Meu sonho é salvar vidas através da ciência e do cuidado humano.</p>
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f4eae8e">
+<p>A Cardiocirurgia exige precisão, conhecimento profundo e responsabilidade extrema.</p>
 </div>
-
 <div class="card">
-<img src="https://images.unsplash.com/photo-1530023367847-a683933f4172" alt="Hospital">
-<h3>Impacto Social</h3>
-<p>Transformar histórias e levar esperança às famílias.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67" alt="Cirurgia">
-<h3>Cardiocirurgia 🫀</h3>
-<p>Minha especialização dos sonhos é a Cardiocirurgia, cuidando do coração — o símbolo da vida.</p>
+<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67">
+<p>Meu objetivo é atuar em cirurgias cardíacas complexas e salvar vidas diariamente.</p>
 </div>
 </div>
 </section>
 
 <section>
-<h2>✨ Minha Jornada</h2>
-<div class="timeline">
-<div class="timeline-item">
-<h4>Preparação</h4>
-<p>Dedicação total aos estudos para ingressar na faculdade de Medicina.</p>
-</div>
+<h2>Mini Simulador de Cirurgia Cardíaca</h2>
 
-<div class="timeline-item">
-<h4>Faculdade de Medicina</h4>
-<p>Anos de aprendizado intenso, prática clínica e superação.</p>
-</div>
+<div class="simulator">
+<p>Paciente apresenta obstrução arterial coronariana grave.</p>
 
-<div class="timeline-item">
-<h4>Residência em Cardiocirurgia</h4>
-<p>Especialização avançada para me tornar referência na área cardíaca.</p>
-</div>
+<button onclick="cirurgia(1)">Realizar Bypass Coronário</button>
+<button onclick="cirurgia(2)">Apenas Medicamento</button>
+
+<div class="result" id="resultado"></div>
 </div>
 </section>
 
 <footer>
-© 2026 | Portfólio Oficial - Futura Dra. Nicolly 🫀👑
+© 2026 | Nicolly | Future MD in Cardiac Surgery
 </footer>
 
 <script>
-function mostrarMensagem(){
-    alert("Meu propósito é cuidar do coração das pessoas e salvar vidas com dedicação, amor e excelência.");
+/* ✨ Partículas mágicas */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<100;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        radius:Math.random()*2,
+        dx:(Math.random()-0.5)*0.5,
+        dy:(Math.random()-0.5)*0.5
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="rgba(236,72,153,0.7)";
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+        ctx.fill();
+        p.x+=p.dx;
+        p.y+=p.dy;
+        if(p.x<0||p.x>canvas.width) p.dx*=-1;
+        if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* 🫀 Simulador */
+function cirurgia(opcao){
+    const resultado = document.getElementById("resultado");
+    if(opcao==1){
+        resultado.innerHTML="Cirurgia bem-sucedida! Fluxo sanguíneo restaurado. Paciente estável. 🫀✨";
+    }else{
+        resultado.innerHTML="Tratamento insuficiente. Risco elevado. Intervenção cirúrgica recomendada.";
+    }
 }
 </script>
 
