@@ -1,189 +1,213 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto de Vida | Medicina</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #22d3ee;
-            --text: #f1f5f9;
-            --gradient: linear-gradient(135deg, #0ea5e9, #6366f1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Nicolly | Future Cardiac Surgeon</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        body {
-            background: var(--primary);
-            color: var(--text);
-            overflow-x: hidden;
-        }
+<style>
+:root{
+    --primary:#2b0a3d;
+    --secondary:#4b1d6b;
+    --text:#ffffff;
+    --pink:#ff66b2;
+    --lilac:#c084fc;
+    --mint:#6ee7b7;
+    --gold:#ffd700;
+    --gradient: linear-gradient(135deg,#ff66b2,#c084fc,#6ee7b7);
+}
 
-        header {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: var(--gradient);
-            background-size: 200% 200%;
-            animation: gradientMove 6s ease infinite;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+body{
+    background:var(--primary);
+    color:var(--text);
+    overflow-x:hidden;
+}
 
-        header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-        }
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:var(--gradient);
+    background-size:300% 300%;
+    animation:gradientMove 8s ease infinite;
+    position:relative;
+}
 
-        header p {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 
-        section {
-            padding: 80px 10%;
-        }
+header h1{
+    font-size:3.8rem;
+    font-weight:800;
+    text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
 
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+header p{
+    margin-top:20px;
+    font-size:1.3rem;
+}
 
-        .card {
-            background: var(--secondary);
-            padding: 30px;
-            border-radius: 15px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-        }
+section{
+    padding:80px 10%;
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
+h2{
+    margin-bottom:40px;
+    font-size:2.2rem;
+    color:var(--pink);
+}
 
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
 
-        .timeline {
-            margin-top: 40px;
-            border-left: 3px solid var(--accent);
-            padding-left: 20px;
-        }
+.card{
+    background:var(--secondary);
+    padding:30px;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(255,105,180,0.2);
+}
 
-        .timeline-item {
-            margin-bottom: 30px;
-            position: relative;
-        }
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(255,215,0,0.6);
+}
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -12px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
+.card h3{
+    color:var(--mint);
+    margin-bottom:15px;
+}
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: var(--secondary);
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+.card img{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:15px;
+}
 
-        button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 30px;
-            background: var(--accent);
-            color: var(--primary);
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.timeline{
+    border-left:4px solid var(--gold);
+    padding-left:20px;
+}
 
-        button:hover {
-            background: white;
-        }
-    </style>
+.timeline-item{
+    margin-bottom:30px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-12px;
+    top:5px;
+    width:15px;
+    height:15px;
+    background:var(--pink);
+    border-radius:50%;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:var(--secondary);
+    font-size:0.9rem;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:var(--mint);
+    color:var(--primary);
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:var(--gold);
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <div>
-        <h1>Medicina</h1>
-        <p>Meu sonho é salvar vidas e transformar histórias.</p>
-        <button onclick="mostrarMensagem()">Clique para saber meu propósito</button>
-    </div>
+<div>
+<h1>Dra. Nicolly 👑</h1>
+<p>Princesa da Medicina | Futura Cardiocirurgiã 🫀</p>
+<button onclick="mostrarMensagem()">Descubra Meu Propósito</button>
+</div>
 </header>
 
 <section>
-    <h2>🌟 Por que escolhi Medicina?</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Vocação</h3>
-            <p>Desejo cuidar das pessoas, aliviar dores e oferecer esperança.</p>
-        </div>
-        <div class="card">
-            <h3>Impacto Social</h3>
-            <p>A Medicina permite transformar vidas e contribuir para a sociedade.</p>
-        </div>
-        <div class="card">
-            <h3>Conhecimento</h3>
-            <p>É uma área que exige estudo constante e desenvolvimento intelectual.</p>
-        </div>
-    </div>
+<h2>💖 Minha Vocação</h2>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f4eae8e" alt="Coração anatômico">
+<h3>Amor pela Vida</h3>
+<p>Meu sonho é salvar vidas através da ciência e do cuidado humano.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1530023367847-a683933f4172" alt="Hospital">
+<h3>Impacto Social</h3>
+<p>Transformar histórias e levar esperança às famílias.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67" alt="Cirurgia">
+<h3>Cardiocirurgia 🫀</h3>
+<p>Minha especialização dos sonhos é a Cardiocirurgia, cuidando do coração — o símbolo da vida.</p>
+</div>
+</div>
 </section>
 
 <section>
-    <h2>📚 Minha Jornada</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <h4>Ensino Médio</h4>
-            <p>Foco total nos estudos e preparação para o vestibular.</p>
-        </div>
-        <div class="timeline-item">
-            <h4>Faculdade de Medicina</h4>
-            <p>Dedicação intensa, prática clínica e muito aprendizado.</p>
-        </div>
-        <div class="timeline-item">
-            <h4>Especialização</h4>
-            <p>Escolher uma área médica para me aprofundar e me tornar referência.</p>
-        </div>
-    </div>
+<h2>✨ Minha Jornada</h2>
+<div class="timeline">
+<div class="timeline-item">
+<h4>Preparação</h4>
+<p>Dedicação total aos estudos para ingressar na faculdade de Medicina.</p>
+</div>
+
+<div class="timeline-item">
+<h4>Faculdade de Medicina</h4>
+<p>Anos de aprendizado intenso, prática clínica e superação.</p>
+</div>
+
+<div class="timeline-item">
+<h4>Residência em Cardiocirurgia</h4>
+<p>Especialização avançada para me tornar referência na área cardíaca.</p>
+</div>
+</div>
 </section>
 
 <footer>
-    © 2026 | Projeto de Vida - Nika | Futuramente Dra. 💙
+© 2026 | Portfólio Oficial - Futura Dra. Nicolly 🫀👑
 </footer>
 
 <script>
-    function mostrarMensagem() {
-        alert("Meu propósito é usar o conhecimento para salvar vidas e levar esperança a quem precisa.");
-    }
+function mostrarMensagem(){
+    alert("Meu propósito é cuidar do coração das pessoas e salvar vidas com dedicação, amor e excelência.");
+}
 </script>
 
 </body>
