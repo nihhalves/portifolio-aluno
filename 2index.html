@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nika | Future Doctor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f1f5f9;
+    --accent:#38bdf8;
+    --gradient: linear-gradient(135deg,#0ea5e9,#6366f1);
+}
+
+.light-mode{
+    --bg:#f1f5f9;
+    --card:#ffffff;
+    --text:#0f172a;
+    --accent:#2563eb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:0.4s;
+}
+
+header{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:var(--gradient);
+    background-size:200% 200%;
+    animation:move 8s infinite alternate;
+}
+
+@keyframes move{
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+
+header h1{
+    font-size:3.5rem;
+    font-weight:800;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+.toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:10px 18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:var(--accent);
+    color:white;
+    font-weight:600;
+}
+
+section{
+    padding:80px 10%;
+}
+
+h2{
+    margin-bottom:40px;
+    font-size:2rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.simulator{
+    background:var(--card);
+    padding:40px;
+    border-radius:20px;
+    max-width:600px;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:none;
+}
+
+button.action{
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:var(--accent);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:20px;
+    font-weight:600;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:var(--card);
+}
+</style>
+</head>
+<body>
+
+<button class="toggle" onclick="toggleMode()">Modo Claro/Escuro</button>
+
+<header>
+<h1>Nika</h1>
+<p>Future Doctor | Medicina | Propósito: Salvar Vidas</p>
+</header>
+
+<section>
+<h2>Sobre Minha Jornada</h2>
+<div class="grid">
+<div class="card">
+<h3>Vocação</h3>
+<p>Desde cedo, sinto o chamado para cuidar de pessoas e fazer diferença real na vida delas.</p>
+</div>
+
+<div class="card">
+<h3>Objetivo</h3>
+<p>Ingressar na faculdade de Medicina e me tornar referência na área escolhida.</p>
+</div>
+
+<div class="card">
+<h3>Especialização Sonhada</h3>
+<p>Pretendo seguir uma área que una ciência, humanidade e impacto social.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Simulador Médico Interativo</h2>
+
+<div class="simulator">
+<label>Nome do Paciente:</label>
+<input type="text" id="nome">
+
+<label>Sintoma Principal:</label>
+<select id="sintoma">
+<option value="febre">Febre</option>
+<option value="dor">Dor no Peito</option>
+<option value="cansaco">Cansaço Excessivo</option>
+<option value="tosse">Tosse Persistente</option>
+</select>
+
+<button class="action" onclick="diagnosticar()">Analisar Caso</button>
+
+<div class="result" id="resultado"></div>
+</div>
+</section>
+
+<footer>
+© 2026 | Portfólio Profissional - Nika | Futura Dra.
+</footer>
+
+<script>
+function toggleMode(){
+    document.body.classList.toggle("light-mode");
+}
+
+function diagnosticar(){
+    const nome = document.getElementById("nome").value;
+    const sintoma = document.getElementById("sintoma").value;
+    const resultado = document.getElementById("resultado");
+
+    let resposta = "";
+
+    if(!nome){
+        resultado.innerHTML = "Por favor, insira o nome do paciente.";
+        return;
+    }
+
+    switch(sintoma){
+        case "febre":
+            resposta = `Paciente ${nome}: Possível infecção. Recomenda-se exames laboratoriais.`;
+            break;
+        case "dor":
+            resposta = `Paciente ${nome}: Investigar sistema cardiovascular imediatamente.`;
+            break;
+        case "cansaco":
+            resposta = `Paciente ${nome}: Pode indicar anemia ou distúrbios hormonais.`;
+            break;
+        case "tosse":
+            resposta = `Paciente ${nome}: Avaliar vias respiratórias e solicitar raio-x.`;
+            break;
+    }
+
+    resultado.innerHTML = resposta;
+}
+</script>
+
+</body>
+</html>
